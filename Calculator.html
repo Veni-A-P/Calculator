@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Javascript Calculate</title>
+<style>
+   body {
+    font-family:sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 20px;
+    max-width: 400px;
+}
+
+.calculator h1 {
+    color: #333333;
+}
+label {
+    flex: 1; 
+    text-align: right;
+    margin-right: 10px;
+}
+
+.input-group {
+    display: flex;
+    align-items:justify;
+    margin: 20px 0;
+}
+
+input[type="number"], select {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    width: 30%;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#result {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #333333;
+}
+
+
+    </style>
+
+    <script>
+        function calc()
+        {
+            var n1 = parseFloat(document.getElementById('n1').value);
+            var n2 = parseFloat(document.getElementById('n2').value);
+                
+            var oper = document.getElementById('operators').value;
+                
+             if(oper === '+')
+             {
+                add();
+            }
+                
+            if(oper === '-')
+            {
+                sub();
+            }
+               
+            if(oper === '*')
+            {
+                multiple();
+            }
+                
+            if(oper === '/')
+            {
+               div();
+            }
+            function add(){
+           
+            document.getElementById('result').innerHTML = n1+n2;
+            }
+            function sub(){
+            
+            document.getElementById('result').innerHTML = n1-n2;
+            }                
+            function multiple(){
+            
+            document.getElementById('result').innerHTML = n1*n2;
+            }
+            function div(){
+            
+            document.getElementById('result').innerHTML = n1/n2;
+            }
+            }
+        </script>
+</head>
+<body>
+    <div class="calculator">
+        <h1>CALCULATOR</h1>
+            <label for="first"><b>First Number:</b></label>
+            <input type="text" id="n1"><br/><br/>
+
+            <label for="second"><b>Second Number:</b></label>
+            <input type="text" id="n2"/><br/><br/>
+        
+            <select id="operators">
+                <option>---select---</otion>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="/">/</option>
+                <option value="*">*</option>
+                </select>&nbsp;&nbsp;
+        
+            <button onclick="calc();">=</button><br><br>
+            <p id="result"></p> 
+    </div>      
+</body>
+</html>
